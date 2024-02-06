@@ -42,3 +42,5 @@ thoughtSchema
 
 // Initialize our Thought model
 const Thought = model('Thought', thoughtSchema);
+
+module.exports = Thought
