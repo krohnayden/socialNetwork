@@ -24,6 +24,7 @@ module.exports = {
                 if (!thoughtData) {
                     return res.status(404).json({ message: 'No thought with this ID!' });
                 };
+                res.status(200).json(thoughtData);
             })
             .catch((err) => {
                 console.log(err);
@@ -67,7 +68,7 @@ module.exports = {
             })
             .catch((err) => {
                 console.log(err);
-                res.sendStatus(400);
+                res.sendStatus(500);
             })
     },
 
@@ -118,14 +119,19 @@ module.exports = {
 
     removeReaction({ params }, res) {
         Thought.findOneAndUpdate(
-            { _id: params.thoughtId },
-            { $pull: { reactions: { reactionId: params.reactionId } } },
+            { _id: req.params.thoughtId },
+            { $pull: { reactions: { reactionId: req.params.reactionId } } },
             { new: true }
         )
-            .then((thoughtData) => res.json(thoughtData))
+            .then((thoughtData) => {
+                if (!thoughtData) {
+                    return res.status(404).json({ message: 'Thought not found or reaction not associated with this thought!'})
+                }
+                res.json(thoughtData);
+            })
             .catch((err) => {
                 console.log(err);
-                res.sendStatus(400);
+                res.sendStatus(500);
             })
-    }
-}
+    },
+};
