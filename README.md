@@ -56,9 +56,11 @@ Test the API POST, PUT, and DELETE routes in your API testing tool to create, up
 
 Test the API POST and DELETE routes to add and remove friends from a user's friend list.
 
-## Walkthrough Vidoes of Routes
+## Walkthrough Videos of Routes
 
+[Thought Routes (1).webm](https://github.com/krohnayden/socialNetwork/assets/143373263/0a37280b-2ec0-4116-88d2-ed4e8f0321ed)
 
+[User Routes.webm](https://github.com/krohnayden/socialNetwork/assets/143373263/26bb635b-842c-4f93-bc25-176058cfc643)
 
 ## Notes
 Ensure that your MongoDB server is running before starting the Social Network API server.
